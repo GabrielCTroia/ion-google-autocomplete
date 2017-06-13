@@ -61,7 +61,9 @@ angular.module('ion-google-autocomplete', [])
 
                 // not needed anymore since the blur will tkae care of it.
                 // also, this doesn't actually work on safari
-                // searchInputElement[0].focus();
+                setTimeout(() => {
+                    searchInputElement[0].focus();
+                }, 250);
             };
             
             $scope.close = function() {
