@@ -48,6 +48,8 @@ angular.module('ion-google-autocomplete', [])
             var searchInputElement = angular.element($scope.modal.$el.find('input'));
             
             element[0].addEventListener('focus', function(event) {
+                // blur the input field
+                element[0].blur();
                 
                 $scope.search.query = '';
                 $scope.open();
@@ -56,7 +58,10 @@ angular.module('ion-google-autocomplete', [])
             $scope.open = function() {
                 
                 $scope.modal.show();
-                searchInputElement[0].focus();
+
+                // not needed anymore since the blur will tkae care of it.
+                // also, this doesn't actually work on safari
+                // searchInputElement[0].focus();
             };
             
             $scope.close = function() {
